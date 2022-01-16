@@ -28,9 +28,11 @@ Bot::Bot(){
     userName = colect_name();   //colect the user name;
 }
 
+//destructor (in this program, it's no necessary have one, but for good pratices, i made this empty)
 Bot::~Bot(){
 }
 
+//ask the user about his name;
 std::string Bot::colect_name(){
     std::string name;
     std::cout<<"Olá, eu sou " << botNome << ", qual seu nomew? (insira somente seu nome)"<<std::endl;
@@ -38,6 +40,7 @@ std::string Bot::colect_name(){
     return name;
 }
 
+//function that will ask about the user about his sign...
 void Bot::askSign(){
     bool know;
     while(true){
@@ -55,12 +58,12 @@ void Bot::askSign(){
         }
     }
 
-    if(know==true){
+    if(know==true){     //if the user know his sign;
         std::string sign;
         std::cout<<"Ótimo! me diga seu signo? Digite corretamente por favor:" <<std::endl;
         std::cin>>sign;
-        infor_sing(sign);
-    }else{
+        infor_sing(sign);   //just inform the user sign;
+    }else{      //if he don't know;
         int day;
         int month;
         int year;
@@ -70,11 +73,11 @@ void Bot::askSign(){
         std::cin>>month;
         std::cout<<"E em que ano você nasceu?"<<std::endl;
         std::cin>>year;
-        std::string sign = find_sign(day, month, year);
-        infor_sing(sign);
+        std::string sign = find_sign(day, month, year); //find user sign;
+        infor_sing(sign);   //inform the user sign
     }
 }
-
+//function responsable to inform the user about his sign...
 void Bot::infor_sing(std::string sign){
     if(sign=="Áries" || sign=="áries" || sign=="aries" || sign =="Aries"){
         std::cout<<"O signo de Áries é o primeiro dos signos do zodíaco e a entrada do Sol nesse signo do zodíaco marca o início do Ano Novo Astrológico. Não é para menos que os arianos têm personalidade forte e são cheios de energia, né? Sobretudo, a personalidade de Áries é marcada pela intensidade, tanto em suas relações quanto em suas decisões. Basicamente, ele é o primeiro signo de elemento Fogo, o que traz características para o signo como ímpeto, coragem e ao mesmo tempo, bastante volatilidade. Ou seja: signos de Fogo costumam ser espontâneos, mas ao mesmo tempo imprevisíveis. Embora sejam taxados como difíceis por muitos outros signos do zodíaco, na verdade tudo o que um ariano deseja é diversão, compreensão e viver a vida de forma extraordinária!"<<std::endl;
