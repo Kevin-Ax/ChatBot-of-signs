@@ -69,11 +69,12 @@ void Bot::askSign(){
         int year;
         std::cout<<"Sem problemas! Me diga então, que dia você nasceu?"<<std::endl;
         std::cin>>day;
-        std::cout<<"Me diga agora, qual mês de seu nascimento?"<<std::endl;
+        std::cout<<"Me diga agora, qual mês de seu nascimento? (Responde o número do mês.)"<<std::endl;
         std::cin>>month;
         std::cout<<"E em que ano você nasceu?"<<std::endl;
         std::cin>>year;
         std::string sign = find_sign(day, month, year); //find user sign;
+        std::cout<<"Seu signo é " << sign << std::endl;
         infor_sing(sign);   //inform the user sign
     }
 }
@@ -106,7 +107,94 @@ void Bot::infor_sing(std::string sign){
     }
 }
 
+//function responsable for find the sign of the user;
 std::string Bot::find_sign(int day, int month, int year){
-    std::cout<<day<< " " <<month<<" "<<year<<std::endl;
-    return "Sigino";
+    std::string sign;
+    switch (month){     //catch the month, make the validation of the days and find the user sign;
+        case 1:
+            if(day<=20){
+                sign="capricornio";
+            }else if(day<=31){
+                sign="aquario";
+            }
+            break;
+        case 2:
+            if(day<=18){
+                sign="aquario";
+            }else if(day<=29){
+                sign="peixes";
+            }
+            break;
+        case 3:
+            if(day<=20){
+                sign="peixes";
+            }else if(day<=31){
+                sign="aries";
+            }
+            break;
+        case 4:
+            if(day<=20){
+                sign="aries";
+            }else if(day<=30){
+                sign="touro";
+            }
+            break;
+        case 5:
+            if(day<=20){
+                sign="touro";
+            }else if(day<=31){
+                sign="gemeos";
+            }
+            break;
+        case 6:
+            if(day<=20){
+                sign="gemeos";
+            }else if(day<=30){
+                sign="cancer";
+            }
+            break;
+        case 7:
+            if(day<=22){
+                sign="cancer";
+            }else if(day<=31){
+                sign="leão";
+            }
+            break;
+        case 8:
+            if(day<=22){
+                sign="leao";
+            }else if(day<=30){
+                sign="virgem";
+            }
+            break;
+        case 9:
+            if(day<=22){
+                sign="virgem";
+            }else if(day<=31){
+                sign="libra";
+            }
+            break;
+        case 10:
+            if(day<=22){
+                sign="libra";
+            }else if(day<=31){
+                sign="escorpiao";
+            }
+            break;
+        case 11:
+            if(day<=21){
+                sign="escorpiao";
+            }else if(day<=30){
+                sign="sagitario";
+            }
+            break;
+        case 12:
+            if(day<=21){
+                sign="sagitario";
+            }else if(day<=31){
+                sign="capricornio";
+            }
+            break;
+    }
+    return sign;
 }
